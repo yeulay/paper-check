@@ -1,0 +1,16 @@
+name: keepalive
+
+# Render free 实例闲置 ~15 分钟休眠,冷启动 30-50s 会赶走第一批访客。
+# 每 10 分钟 ping 一次保持唤醒;公开仓库 Actions 免费,
+# 全月挂机 720h 在 Render free 750h/月额度内。
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping health endpoint
+        run: curl -fsS --retry 3 --max-time 30 https://paper-check-nt83.onrender.com/api/health
