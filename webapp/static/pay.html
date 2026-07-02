@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>解锁完整报告 · 投稿前自检</title>
+<link rel="stylesheet" href="/style.css" />
+<style>
+.pay-hero{padding:48px 0 8px;text-align:center}
+.price{font-size:64px;font-weight:800;color:var(--emph);margin:6px 0 2px}
+.price small{font-size:22px;color:var(--muted);font-weight:400}
+.gets{max-width:560px;margin:18px auto 0;text-align:left}
+.gets li{list-style:none;padding:7px 0 7px 34px;position:relative;font-size:15px;color:#333}
+.gets li::before{content:"✓";position:absolute;left:8px;color:var(--ok);font-weight:800}
+.qr-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.qr-card{flex:1;min-width:230px;max-width:280px;background:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:18px;text-align:center}
+.qr-card h4{font-size:16px;margin-bottom:12px}
+.qr-card.wechat h4{color:#09bb07}
+.qr-card.alipay h4{color:#1677ff}
+.qr-card img{width:100%;max-width:220px;border-radius:8px;display:block;margin:0 auto}
+.qr-card.missing img{display:none}
+.qr-card .fallback{display:none;color:var(--muted);font-size:14px;padding:48px 0}
+.qr-card.missing .fallback{display:block}
+.steps{counter-reset:s;max-width:600px;margin:0 auto}
+.steps li{list-style:none;counter-increment:s;position:relative;padding:10px 0 10px 52px;font-size:15px}
+.steps li::before{content:counter(s);position:absolute;left:6px;top:8px;width:32px;height:32px;
+  border-radius:50%;background:var(--ink);color:#fff;font-weight:800;display:flex;
+  align-items:center;justify-content:center;font-size:15px}
+.contact{background:#f3f8fb;border:2px dashed var(--accent);border-radius:12px;
+  padding:14px 18px;margin-top:14px;text-align:center;font-size:15px}
+.contact b{color:var(--accent)}
+.back{display:inline-block;margin-top:18px;color:var(--accent);font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<header class="hero pay-hero">
+  <div class="wrap">
+    <div class="tag">解锁完整报告</div>
+    <div class="price">¥9.9<small> / 一次解锁,长期有效</small></div>
+    <ul class="gets">
+      <li>9 项检查的<b>完整逐项明细</b>:具体哪句超长、哪些词该换、缺哪些声明段落</li>
+      <li>可下载 Markdown 报告,逐条对照修改</li>
+      <li>解锁码不限次数,改完稿再查也能用</li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <div class="qr-row">
+      <div class="qr-card wechat">
+        <h4>微信支付</h4>
+        <img src="/pay/wechat.png" alt="微信收款码"
+             onerror="this.closest('.qr-card').classList.add('missing')" />
+        <div class="fallback">收款码即将上线</div>
+      </div>
+      <div class="qr-card alipay">
+        <h4>支付宝</h4>
+        <img src="/pay/alipay.png" alt="支付宝收款码"
+             onerror="this.closest('.qr-card').classList.add('missing')" />
+        <div class="fallback">收款码即将上线</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 style="margin-bottom:6px">付款后怎么拿解锁码?</h3>
+    <ol class="steps">
+      <li>扫上方任一收款码,支付 <b>¥9.9</b>(备注留言"自检"更快对账)</li>
+      <li>凭<b>付款截图</b>联系我(下方联系方式)</li>
+      <li>收到解锁码后,回到<a href="/" style="color:var(--accent)">工具页</a>输入解锁,完整报告即刻可看、可下载</li>
+    </ol>
+    <div class="contact">联系方式:<b>小红书私信 @CS论文润色 · 悦悦</b>(通常几小时内回复)</div>
+  </section>
+
+  <div style="text-align:center"><a class="back" href="/">← 返回工具页</a></div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>解锁的是<b>机器初筛完整报告</b>;不代写、不代投、不保证录用或查重。付款遇到问题,联系上方渠道处理。</p>
+  </div>
+</footer>
+</body>
+</html>
