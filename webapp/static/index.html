@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>投稿前自检 · 30秒揪出 desk-reject 风险</title>
+<meta name="description" content="粘贴英文论文,30秒得到投稿前体检报告:字数/结构/超长句/中式表达/声明合规…降低编辑秒拒概率。" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="tag">SCI / EI / 顶会投稿</div>
+    <h1>投稿前自检<br /><span class="emph">30 秒</span> 揪出 desk-reject 风险</h1>
+    <p class="sub">粘贴你的英文论文,立刻得到一份体检报告:字数、结构、超长句、中式表达、声明合规……<br />编辑初筛(desk review)就刷掉一大批稿子,别败在低级问题上。</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="tool card">
+    <textarea id="text" placeholder="把英文论文正文粘贴到这里(或下方上传 .docx / .tex / .txt)……"></textarea>
+    <div class="row">
+      <label class="file-btn">
+        📎 上传文件
+        <input type="file" id="file" accept=".txt,.md,.tex,.docx" hidden />
+      </label>
+      <span id="fname" class="fname"></span>
+      <input type="number" id="tw" placeholder="目标刊字数上限(选填)" />
+      <button id="run" class="btn-primary">免费自检</button>
+    </div>
+    <p class="hint">🔒 文本仅用于本次分析,不保存、不外传。</p>
+  </section>
+
+  <section id="result" class="result hidden">
+    <div class="overview card">
+      <h2>体检总览</h2>
+      <div id="counts" class="counts"></div>
+      <div id="grid" class="grid"></div>
+    </div>
+
+    <div id="paywall" class="paywall card hidden">
+      <h3>🔓 解锁完整报告</h3>
+      <p id="teaser" class="teaser"></p>
+      <p class="paywall-desc">免费版只给你「哪几项有问题」;完整报告会**逐条**告诉你:<b>具体哪句超长、哪些词要换、缺哪些声明段落</b>,并可下载 Markdown。</p>
+      <div class="unlock-row">
+        <input type="text" id="unlock" placeholder="输入解锁码" />
+        <button id="unlockBtn" class="btn-primary">解锁</button>
+      </div>
+      <p class="pay-line">
+        <span id="priceText"></span>
+        · <a id="payLink" href="#" target="_blank" rel="noopener">获取解锁码 →</a>
+      </p>
+    </div>
+
+    <div id="detail" class="detail"></div>
+
+    <div class="upsell card">
+      <h3>机器初筛之外,还需要真人把关?</h3>
+      <p>这份报告只做机器初筛。<b>时态/冠词的精确修改、算法术语、审稿回复信</b>这些,需要懂 CS/工科的真人逐句改——那正是我提供的服务。</p>
+      <a class="btn-ghost" id="serviceLink" href="#" target="_blank" rel="noopener">了解人工润色 →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>只做<b>语言与格式的机器初筛</b>,不代写、不代投、不保证录用或查重。作者为论文唯一创作者。</p>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>
