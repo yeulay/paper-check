@@ -13,6 +13,7 @@
 """
 from __future__ import annotations
 
+import asyncio
 import os
 import sys
 from pathlib import Path
@@ -26,6 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from tools.manuscript_check import analyze, read_docx, render_report, strip_latex  # noqa: E402
 from webapp.venues import VENUES, check_venue  # noqa: E402
+from webapp.doi_check import check_dois  # noqa: E402
 
 app = FastAPI(title="投稿前自检 · 网页版")
 
@@ -83,6 +85,8 @@ async def check(text: str = Form(""), target_words: str = Form(""),
     results = analyze(raw, is_tex=is_tex, target_words=tw)
     plain = strip_latex(raw) if is_tex else raw
     results += check_venue(plain, raw, venue.strip() or "generic")
+    # DOI 活体核验走外网,放线程池避免卡事件循环
+    results.append(await asyncio.to_thread(check_dois, raw))
 
     paid = unlock.strip() == UNLOCK_CODE and UNLOCK_CODE != ""
     resp = {
