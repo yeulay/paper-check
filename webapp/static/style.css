@@ -26,8 +26,8 @@ textarea:focus{outline:2px solid var(--accent);border-color:transparent}
   cursor:pointer;font-size:14px;white-space:nowrap}
 .file-btn:hover{border-color:var(--accent)}
 .fname{font-size:13px;color:var(--muted);flex:1;min-width:60px}
-input[type=number],input[type=text]{border:1px solid var(--line);border-radius:10px;
-  padding:10px 14px;font-size:14px;font-family:inherit;background:#fff}
+input[type=number],input[type=text],select{border:1px solid var(--line);border-radius:10px;
+  padding:10px 14px;font-size:14px;font-family:inherit;background:#fff;cursor:pointer}
 input[type=number]{width:200px}
 .btn-primary{background:var(--emph);color:#fff;border:none;border-radius:10px;
   padding:11px 26px;font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap}

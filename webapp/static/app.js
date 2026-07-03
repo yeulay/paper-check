@@ -9,6 +9,16 @@ $("file").addEventListener("change", (e) => {
   $("fname").textContent = f ? f.name : "";
 });
 
+// 目标期刊/会议预设(定向检查是本工具的差异化能力)
+fetch("/api/venues")
+  .then((r) => r.json())
+  .then((list) => {
+    $("venue").innerHTML = list
+      .map((v) => `<option value="${v.key}">目标:${v.name}</option>`)
+      .join("");
+  })
+  .catch(() => {});
+
 async function runCheck(unlock = "") {
   const text = $("text").value;
   const file = $("file").files[0];
@@ -19,6 +29,7 @@ async function runCheck(unlock = "") {
   const fd = new FormData();
   fd.append("text", text);
   fd.append("target_words", $("tw").value || "");
+  fd.append("venue", $("venue").value || "generic");
   fd.append("unlock", unlock);
   if (file) fd.append("file", file);
 
